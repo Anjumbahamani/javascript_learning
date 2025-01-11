@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stylish Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background: #f9f9f9;
+      }
+
+      /* Header Section */
+      .header {
+        position: relative;
+        background: linear-gradient(45deg, #4a90e2, #50e3c2);
+        color: white;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header::before {
+        content: "Welcome to IPCS";
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* Navigation */
+      .nav {
+        display: flex;
+        justify-content: center;
+        background: #333;
+        padding: 1rem;
+      }
+
+      .nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1rem;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      .nav a:hover {
+        color: #4a90e2;
+      }
+
+      .nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #4a90e2;
+        transition: width 0.3s;
+      }
+
+      .nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Main Content Section */
+      .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem auto;
+        max-width: 1200px;
+        padding: 0 2rem;
+      }
+
+      /* Left Section */
+      .left {
+        flex: 2;
+        margin-right: 2%;
+      }
+
+      .left .content-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .left .content-card h2 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .left .content-card:nth-child(odd) {
+        background: #adcce8a4;
+      }
+
+      .left .content-card::after {
+        content: "Article";
+        position: absolute;
+        top: -10px;
+        right: 10px;
+        background: #4a90e2;
+        color: white;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+      }
+
+      /* Right Section */
+      .right {
+        flex: 1;
+        background: #f8f8f8;
+        border-radius: 10px;
+        padding: 1.5rem;
+      }
+
+      .right h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .right ul {
+        list-style: none;
+      }
+
+      .right ul li {
+        background: #4a90e2;
+        color: white;
+        margin-bottom: 0.8rem;
+        padding: 0.8rem;
+        border-radius: 5px;
+        position: relative;
+      }
+
+      .right ul li:nth-child(even) {
+        background: #50e3c2;
+      }
+
+      .right ul li::before {
+        content: "•";
+        position: absolute;
+        left: -15px;
+        font-size: 1.2rem;
+        color: rgb(22, 137, 145);
+      }
+
+      /* Footer Section */
+      .footer {
+        text-align: center;
+        background: #333;
+        color: white;
+        padding: 2rem;
+        margin-top: 2rem;
+        position: relative;
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-50px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .ball {
+        width: 50px;
+        height: 50px;
+        background-color: orange;
+        border-radius: 50%;
+        animation: bounce 1s infinite;
+        margin: 10%;
+      }
+      .ball-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+      }
+
+      .transform-box {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+        transition: transform 0.3s;
+      }
+
+      .transform-box:hover {
+        transform: rotate(65deg) scale(1.5);
+      }
+
+      .parallax {
+        background-image: url("images (1).jpg");
+        height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .content {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .form-container {
+        flex: 1 1 100%;
+        margin: 20px;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container h3 {
+        margin-bottom: 15px;
+      }
+
+      .form-container form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .form-container form input,
+      .form-container form textarea,
+      .form-container form button {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .form-container form button {
+        background-color: #0e88d4;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .form-container form button:hover {
+        background-color: #1d2c34;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 10px;
+        margin: 10px;
+        background-color: #0287dae3;
+        border-radius: 10px;
+        padding: 1.5rem;
+      }
+      .grid-item {
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        padding: 1.5rem;
+      }
+      .grid-item:nth-child(even) {
+        background: #50e3c2;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+        margin: 10px;
+        background-color: #0287dae3;
+        border-radius: 10px;
+        padding: 1.5rem;
+      }
+      .flex-item {
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        padding: 1.5rem;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template: 150px / auto auto auto;
+        grid-gap: 10px;
+        background-color: #c510e1cb;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.856);
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+      }
+
+      [title~="YouTube"] {
+        border: 5px solid yellow;
+      }
+      [Class|="top"] {
+        background-color: crimson;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>IPCS</h1>
+    </div>
+
+    <div class="nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="container">
+      <div class="left">
+        <div class="content-card">
+          <h2>Article 1</h2>
+          <img src="images (1).jpg" alt="" width="100%" height="auto" />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="content-card">
+          <h2>Article 2</h2>
+          <img src="images (1).jpg" alt="" width="100%" height="auto" />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        </div>
+        <div class="content-card">
+          <h2>Article 3</h2>
+          <img src="images (1).jpg" alt="" width="100%" height="auto" />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        </div>
+      </div>
+      <div class="right">
+        <h3>Popular Links</h3>
+        <ul>
+          <li>Link 1</li>
+          <li>Link 2</li>
+          <li>Link 3</li>
+          <li>Link 4</li>
+        </ul>
+        <div class="form-container">
+          <h3>Contact Us</h3>
+          <form action="#">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+      <div class="grid-item">9</div>
+    </div>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+      <div class="flex-item">7</div>
+      <div class="flex-item">8</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+      <div class="flex-item">7</div>
+      <div class="flex-item">8</div>
+    </div>
+    <div class="grid-container">
+      <div class="item1">1</div>
+      <div class="item2">2</div>
+      <div class="item3">3</div>
+      <div class="item4">4</div>
+      <div class="item5">5</div>
+      <div class="item6">6</div>
+    </div>
+    <a href="http://www.disney.com" target="_blank">Welcome to Disney</a>
+    <a href="http://www.disney.com" target="_target">Welcome to Disney</a>
+    <img src="images (1).jpg" title="YouTube" width="224" height="162" />
+    <h1 class="top-header">Welcome</h1>
+    <div class="ball-container">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="transform-box"></div>
+    </div>
+    <div class="parallax"></div>
+    <div class="content">
+      <h1>Welcome</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto
+        ratione aliquam exercitationem quisquam atque laboriosam cupiditate
+        culpa! Dignissimos perferendis, quidem eum reiciendis nihil itaque illum
+        aliquid id temporibus qui?Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Excepturi obcaecati ducimus quaerat atque quos
+        repellendus odit culpa earum? Fugiat ea id, illo enim excepturi delectus
+        provident hic repudiandae vel maiores. Lorem, ipsum dolor sit amet
+        consectetur adipisicing elit. Dicta quod corporis eum molestiae,
+        assumenda consequuntur velit quasi laudantium expedita fugiat, non,
+        numquam autem saepe vero? Dolore perspiciatis doloremque quia vero!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex at quidem
+        unde tempora temporibu s! Provident beatae commodi quas dicta voluptates
+        doloremque at, molestiae repudiandae repellat, nam illo sapiente.
+        Nesciunt, vitae. Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Corporis, iusto ratione aliquam exercitationem quisquam atque
+        laboriosam cupiditate culpa! Dignissimos perferendis, quidem eum
+        reiciendis nihil itaque illum aliquid id temporibus qui?Lorem ipsum
+        dolor sit, amet consectetur adipisicing elit. Excepturi obcaecati
+        ducimus quaerat atque quos repellendus odit culpa earum? Fugiat ea id,
+        illo enim excepturi delectus provident hic repudiandae vel maiores.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta quod
+        corporis eum molestiae, assumenda consequuntur velit quasi laudantium
+        expedita fugiat, non, numquam autem saepe vero? Dolore perspiciatis
+        doloremque quia vero! Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Ex at quidem unde tempora temporibus! Provident beatae commodi
+        quas dicta voluptates doloremque at, molestiae repudiandae repellat, nam
+        illo sapiente. Nesciunt, vitae.
+      </p>
+    </div>
+    <div class="parallax">
+      <!-- <img src="images (1).jpg" alt="" width="100%" height="auto"> -->
+    </div>
+
+    <div class="footer">
+      <p>&copy; Footer</p>
+    </div>
+
+    <script>
+      let a = 10;
+      let b = "10";
+
+      console.log(a === b);
+      console.log(a == b);
+      console.log(a > 5);
+      console.log(a <= 10);
+
+     
+    </script>
+  </body>
+</html>
