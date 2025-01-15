@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Content Update</title>
+</head>
+<body>
+
+  <h2>Dynamic Content Example</h2>
+  <p id="dynamicText">This is the original content.</p>
+  <button id="updateButton">Update Content</button>
+
+  <script>
+    document.getElementById('updateButton').addEventListener('click', function () {
+      
+      document.getElementById('dynamicText').textContent = 'The content has been updated!';
+      document.getElementById('dynamicText').style.color = 'blue';
+    });
+  </script>
+
+</body>
+</html>
